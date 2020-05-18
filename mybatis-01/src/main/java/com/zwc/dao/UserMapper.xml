@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zwc.dao.UserDao">
-    <select id="getUserList" resultType="com.zwc.pojo.User">
+    <select id="getUserList" resultType="hello">
         select * from userinfo;
     </select>
 </mapper>

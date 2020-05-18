@@ -2,16 +2,45 @@
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
 <!-- configuration核心配置文件 -->
 <configuration>
+
+    <!-- properties标签要放在最上面，这个xml中的标签都有规定的顺序 -->
+    <!-- 引入外部配置文件 -->
+    <properties resource="db.properties" >
+        <!-- 如果db.properties中和此处有重复的参数值，优先使用db.properties文件中的参数值 -->
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+    </properties>
+
+    <settings>
+        <!-- 开启驼峰命名规范-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 开启日志 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!-- 类型别名（配置别名后，在*Mapper.xml文件中的resultType等都可以直接使用定义好的别名） -->
+    <!-- 第一种：全路径 -->
+    <!--<typeAliases>
+        <typeAlias alias="user" type="com.zwc.pojo.User"/>
+    </typeAliases>-->
+    <!-- 或者可以使用下面这种扫包的方式，建议在resultType等处使用别名时首字母小写 -->
+    <!-- 第二种：扫包 -->
+    <typeAliases>
+        <package name="com.zwc.pojo"/>
+    </typeAliases>
+    <!-- 第三种：在实体类上使用@Alias("hello")进行注解 -->
+
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://127.0.0.1:3306/localhosttest?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=UTC" />
-                <property name="username" value="root" />
-                <property name="password" value="123456" />
+                <property name="driver" value="${driver}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username}" />
+                <property name="password" value="${password}" />
             </dataSource>
         </environment>
     </environments>

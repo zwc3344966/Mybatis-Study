@@ -12,7 +12,7 @@ import java.io.InputStream;
  * @author: zhangwch
  * @create: 2020-05-17 21:25
  **/
-public class MybatisUtils {
+public class BaseDao {
 
     private static SqlSessionFactory sqlSessionFactory;
 
@@ -21,6 +21,7 @@ public class MybatisUtils {
             // 使用Mybatis第一步，获取SqlSessionFactory对象
             String resource = "mybatis-config.xml";
             InputStream inputStream = Resources.getResourceAsStream(resource);
+
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         } catch (IOException e) {
             e.printStackTrace();

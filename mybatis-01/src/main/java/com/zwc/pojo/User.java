@@ -1,11 +1,15 @@
 package com.zwc.pojo;
 
+import org.apache.ibatis.type.Alias;
+
 import java.io.Serializable;
 
 /**
  * @author: zhangwch
  * @create: 2020-05-17 21:33
  **/
+// 别名（*Mapper.xml中使用）
+// @Alias("user")
 public class User implements Serializable {
 
     private int id;

@@ -1,7 +1,7 @@
 package com.zwc.dao;
 
 import com.zwc.pojo.User;
-import com.zwc.utils.MybatisUtils;
+import com.zwc.utils.BaseDao;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
@@ -16,7 +16,8 @@ public class UserDaoTest {
     @Test
     public void test() {
         // 第一步：获取sqlSession对象
-        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        SqlSession sqlSession = BaseDao.getSqlSession();
+
 
         // 第一种方式（推荐）
          UserDao userDao = sqlSession.getMapper(UserDao.class);
@@ -25,9 +26,12 @@ public class UserDaoTest {
         // 第二种方法（不推荐）
         // List<User> userList = sqlSession.selectList("com.zwc.dao.UserDao.getUserList");
 
-        for (User user: userList) {
-            System.out.println("id:" + user.getId() + "; name" + user.getName() + "; pwd:" + user.getPassword());
-        }
+        // 开启日志后关闭打印
+//        for (User user: userList) {
+//            System.out.println("id:" + user.getId() + "; name" + user.getName() + "; pwd:" + user.getPassword());
+//        }
+
+
         // 关闭sqlSession
         sqlSession.close();
     }
