@@ -30,7 +30,6 @@ public class UserDaoTest {
 //            System.out.println("id:" + user.getId() + "; name" + user.getName() + "; pwd:" + user.getPassword());
 //        }
 
-
         // 关闭sqlSession
         sqlSession.close();
     }
