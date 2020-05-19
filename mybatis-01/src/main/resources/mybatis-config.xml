@@ -31,7 +31,7 @@
     <typeAliases>
         <package name="com.zwc.pojo"/>
     </typeAliases>
-    <!-- 第三种：在实体类上使用@Alias("hello")进行注解 -->
+    <!-- 第三种：在实体类上使用@Alias("user")进行注解 -->
 
     <environments default="development">
         <environment id="development">
