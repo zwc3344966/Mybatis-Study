@@ -18,10 +18,9 @@ public class UserDaoTest {
         // 第一步：获取sqlSession对象
         SqlSession sqlSession = BaseDao.getSqlSession();
 
-
         // 第一种方式（推荐）
-         UserDao userDao = sqlSession.getMapper(UserDao.class);
-         List<User> userList = userDao.getUserList();
+         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+         List<User> userList = userMapper.getUserList();
 
         // 第二种方法（不推荐）
         // List<User> userList = sqlSession.selectList("com.zwc.dao.UserDao.getUserList");

@@ -19,6 +19,8 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <!-- 开启日志 -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!-- 开启二级缓存 -->
+        <setting name="cacheEnabled" value="true" />
     </settings>
 
     <!-- 类型别名（配置别名后，在*Mapper.xml文件中的resultType等都可以直接使用定义好的别名） -->
@@ -47,6 +49,10 @@
 
     <!-- 注册mapper -->
     <mappers>
-        <mapper resource="com/zwc/dao/UserMapper.xml"/>
+        <!-- 使用相对于类路径的资源引用 -->
+         <mapper resource="com/zwc/dao/UserMapper.xml"/>
+        <!-- 或者使用扫包的方式进行引用 -->
+        <!-- TODO:注意，在使用扫包的方式的时候，dao.java即*Mapper.java必须和*Mapper.xml名称保持一致 -->
+        <!--<package name="com.zwc.dao"/>-->
     </mappers>
 </configuration>
