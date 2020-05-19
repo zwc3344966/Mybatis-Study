@@ -17,10 +17,11 @@
     <settings>
         <!-- 开启驼峰命名规范-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
-        <!-- 开启日志（STDOUT_LOGGING-打印标准日志，LOG4J-按配置打印日志） -->
+        <!-- 开启日志（STDOUT_LOGGING-标准日志工厂实现，LOG4J-按配置打印日志） -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
         <!--<setting name="logImpl" value="LOG4J"/>-->
         <!-- 开启二级缓存 -->
+
         <setting name="cacheEnabled" value="true" />
     </settings>
 
